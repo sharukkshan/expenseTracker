@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="./tax.css">
+</head>
+<body>
+    <h1>Calculate and Pay Tax</h1>
+
+    <div id="buttonSection">
+        <button type="button" id="home">HOME</button>
+    </div>
+
+    <div class="taxMainContainer">
+        <h4>Total Income:
+            <!--span id="totalIncomeContainer"> 0</span-->
+            <input type="number" id="totalIncomeInput" value="0">
+        </h4>
+
+        <br> 
+        <h4>Tax Rate:</h4>
+        <br>
+        <div id="taxReturn">
+            <table>
+                <tbody>
+                    <tr>
+                        <th>Income Threshold</th>
+                        <th>Tax Rate</th>
+                    </tr>
+                    <tr>
+                        <td>Income above ₹1000000.00</td>
+                        <td>20%</td>
+                    </tr>
+                    <tr>
+                        <td>Income above ₹700000.00</td>
+                        <td>15%</td>
+                    </tr>
+                    <tr>
+                        <td>Income above ₹500000.00</td>
+                        <td>10%</td>
+                    </tr>
+                    <tr>
+                        <td>Income above ₹300000.00</td>
+                        <td>5%</td>
+                    </tr>
+                </tbody>
+            </table>
+            <button id="calcTaxAmount">Calculate Tax</button>
+            <p>Tax to Pay:
+                <span id="taxAmount"> 0</span>
+            </p>
+            <p>Amount left after tax:
+                <span id="leftOver"> 0</span>
+            </p>
+            <button id="rzp-button1">Pay Now</button>
+        </div>
+    </div>
+
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+    <div class="razorpay-container" 
+    style="z-index: 2147483647; position: fixed; top: 0px; display: none; left: 0px; height: 100%; width: 100%; backface-visibility: hidden; overflow-y: visible;">
+    <style>
+    @keyframes rzp-rot{to{transform: rotate(360deg);}}
+    @-webkit-keyframes rzp-rot{to{-webkit-transform: rotate(360deg);}} 
+    .razorpay-container > iframe {min-height: 100%!important;}
+    </style>
+    <div class="razorpay-backdrop" 
+    style="min-height: 100%; transition: all 0.3s ease-out 0s; position: fixed; top: 0px; left: 0px; width: 100%; height: 100%;">
+    <span style="text-decoration: none; background: rgb(214, 68, 68); border: 1px dashed white; padding: 3px; opacity: 0; transform: rotate(45deg); transition: opacity 0.3s ease-in 0s; font-family: lato, ubuntu, helvetica, sans-serif; color: white; position: absolute; width: 200px; text-align: center; right: -50px; top: 50px;">Test Mode</span>
+    </div>
+    <iframe style="opacity: 1; height: 100%; position: relative; background: none; display: block; border: 0 none transparent; margin: 0px; padding: 0px; z-index: 2;" allowtransparency="true" frameborder="0" width="100%" height="100%" src="https://api.razorpay.com/v1/checkout/public?traffic_env=production&amp;build=ce75e4d58b68e4207e6c59ac748c974bd1bc2090&amp;modern=1&amp;unified_lite=1&amp;checkout_v2=1" class="razorpay-checkout-frame" allow="otp-credentials; payment; clipboard-write; camera *">
+
+    </iframe>
+</div>
+
+<script src="./tax.js"></script>
+</body>
+</html>

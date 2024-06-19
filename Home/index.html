@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body>
+    <h1>Expense Trackers</h1>
+    <div id="buttonSection">
+        <button type="button" id="home">HOME</button>
+        <button type="button" id="ai">AI</button>
+        <button type="button" id="chartbtn">CHART</button>
+        <button type="button" id="tax">TAX</button>
+        <button type="button" id="logout">LOG OUT</button>
+        <!--<a href="./Tax/tax.html"></a>-->
+    </div>
+
+    <div class="mainContainer">
+        <div id="leftContainer">
+            <div id="income_container">
+                <p class="totalIncomeCardContainer">
+                    Total Balance <br> <span id="totalIncome">$ 0</span>
+                </p>
+                <p class="incomeCardContainer">
+                    Income <br> <span id="income">$ 0</span>
+                </p>
+                <p class="expenseCardContainer">
+                    Expense <br> <span id="expense">$ 0</span>
+                </p>
+            </div>
+            <p id="aiprompt"></p>
+
+            <div id="incomeInput">
+                <select name="" id="selectIncomeOption">
+                    <option value="income">INCOME</option>
+                    <option value="expense">EXPENSE</option>
+                </select>
+                <br>
+                <input type="text" id="description" placeholder="Description" required>
+                <br>
+                <input type="number" id="amount" placeholder="0.00">
+                <br>
+                <button type="submit" id="submit">SUBMIT</button>
+            </div>
+
+            <div id="transactionContainer">
+                <h3>
+                    <span id="transactionChecker" style="display: none;">No</span>
+                    Transactions
+                </h3>
+                <div id="numberOfTransactions">
+                    <div>
+                        <div class="transactionsleftCard">
+                            <p class="entries">CTC</p>
+                            <p class="inc">Income</p>
+                        </div>
+                        <div>
+                            <p class="entries income">
+                                <span>+</span>
+                                0
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="rightContainer">
+        <div id="chart">
+            <canvas id="myChart" width="300" height="350"></canvas>
+        </div>
+        </div>
+
+    </div>
+
+    <div class="chartContainer"></div>
+
+    <div id="aiContainer" style="display: none;">
+        <h3>Manage Expenses with AI</h3>
+        <div id="middleContainer"></div>
+        <textarea name="" id="geminiInput" cols="30" rows="10"></textarea>
+        <br>
+        <button id="geminiButton">Submit</button>
+    </div>
+
+    <div id="chatbotContainer">
+        <div class="chatbotHeader">
+            <h2>AI Chatbot</h2>
+            <button id="closeChatbot">Close</button>
+        </div>
+        <div id="chatbotMessages"></div>
+        <input type="text" id="userInput" placeholder="Type your message here...">
+        <button id="sendMessage">Send</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="./script.js"></script>
+</body>
+</html>
